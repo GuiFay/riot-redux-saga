@@ -17,8 +17,7 @@ module.exports = {
   call: ["redux-saga/effects", "call"],
   $: "jquery",
   jQuery: "jquery",
-  L: "leaflet",
-  Chart: "chart.js",
   _: "lodash",
-  moment: "moment"
+  moment: "moment",
+  Popper: 'popper.js',
 };

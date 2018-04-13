@@ -4,14 +4,12 @@ const webpack = require("webpack");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const plugins = require("./webpack-provide-plugins");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
 const precss = require("precss");
 const autoprefixer = require("autoprefixer");
 
 module.exports = {
   entry: [
     "babel-polyfill",
-    "font-awesome/scss/font-awesome.scss",
     "bootstrap",
     "./src/index.js"
   ],
@@ -40,7 +38,7 @@ module.exports = {
       // font-awesome
       {
         test: /font-awesome\.config\.js/,
-        use: [{ loader: "style-loader" }, { loader: "font-awesome-loader" }]
+        use: ["style-loader", "font-awesome-loader"]
       },
       {
         test: /\.(scss)$/,
@@ -79,7 +77,6 @@ module.exports = {
       filename: "css/[name].css",
       disable: false,
       allChunks: true
-    }),
-    new CleanWebpackPlugin(["dist"])
+    })
   ]
 };
